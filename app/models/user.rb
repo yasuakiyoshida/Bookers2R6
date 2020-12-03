@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
   
-  # class_nameでRelationshipモデルを参照するように設定することでRelationshipをfollowerとfollowedに分ける(関連先のモデルを参照する際の名前を変更)
+  # class_nameでRelationshipモデルを便宜的にfollowerとfollowedに分ける
   # foreign_keyで外部キーを指定、user.のidとforeign_keyが合致しているものを持ってくる、follower_idおよびfollowed_idの適切な方にuser_idを格納
   # フォロー取得。Relationshipモデルのfollower_idにuser_idを格納
   # UserのfollowerとRelationshipのfollowerを関連付け(一人のUser.idは何人もフォローできる(Relationshipのfollower_id)
