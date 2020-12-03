@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    get :followings, on: :member # フォロー/フォロワー一覧ページへのルーティング、menberでidが表示されるようになり、
+    get :followers, on: :member # followings_user_pathはフォローユーザー一覧のページへ、followers_user_pathはフォロワー一覧ページへ飛ぶようになる
+  end
+  resources :relationships, only: [:create, :destroy]
 end

@@ -5,8 +5,10 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @book_comment = BookComment.new
+    # 投稿者のuser情報を取得（フォロー機能で使用）
+    @user = @book.user
   end
-
+  
   def index
     @books = Book.all
     @book = Book.new
