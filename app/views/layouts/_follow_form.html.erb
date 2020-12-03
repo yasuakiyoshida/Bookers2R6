@@ -1,5 +1,5 @@
-<p><%= "フォロー数: #{@user.follower.count}" %></p>
-<p><%= "フォロワー数: #{@user.followed.count}" %></p>
+<p><%= "フォロー数: #{user.follower.count}" %></p>
+<p><%= "フォロワー数: #{user.followed.count}" %></p>
 <% unless current_user == user %><!-- フォローしようとしているユーザーが自分でなければOK -->
   <!-- フォロー解除ボタン -->
   <% if current_user.following?(user) %><!-- following?メソッドですでにフォロー済みであればtureを返す -->
@@ -9,7 +9,7 @@
     <% end %>
   <!-- フォローボタン -->
   <% else %>
-    <%= form_with model: @followed, url: relationships_path, local: true do |f| %>
+    <%= form_with model: @followed, url: relationships_path, method: :post, local: true do |f| %>
       <%= f.hidden_field :followed_id, value: user.id %>
       <%= f.submit 'フォローする', class: 'btn btn-success btn-block' %>
     <% end %>
