@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     following = current_user.follow(user) # followメソッドで引数に渡したユーザーをフォローしていなければcreate(new + save)
     if following.save
       flash[:success] = 'ユーザーをフォローしました'
-      redirect_to user
+      redirect_to request.referer
     end
   end
   
@@ -14,7 +14,7 @@ class RelationshipsController < ApplicationController
     following = current_user.unfollow(user)
     if following.destroy
       flash[:success] = 'ユーザーのフォローを解除しました'
-      redirect_to user
+      redirect_to request.referer
     end
   end
 end
