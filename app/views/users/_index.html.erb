@@ -11,8 +11,8 @@
       <tr>
         <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
         <td><%= user.name %></td>
-        <td><%= "フォロー数: #{user.follower.count}" %></td>
-        <td><%= "フォロワー数: #{user.followed.count}" %></td>
+        <td><%= link_to "フォロー数: #{user.follower.count}", followings_user_path(user.id) %></td>
+        <td><%= link_to "フォロワー数: #{user.followed.count}", followers_user_path(user.id) %></td>
         <td>
           <% unless current_user == user %><!-- フォローしようとしているユーザーが自分でなければOK -->
             <!-- フォロー解除ボタン -->
@@ -30,6 +30,7 @@
             <% end %>
           <% end %>
         </td>
+        <td><%= link_to 'show', user_path(user.id) %></td>
       </tr>
     <% end %>
   </tbody>

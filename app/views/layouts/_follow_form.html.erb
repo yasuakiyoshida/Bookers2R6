@@ -1,5 +1,5 @@
-<p><%= "フォロー数: #{user.follower.count}" %></p>
-<p><%= "フォロワー数: #{user.followed.count}" %></p>
+<p><%= link_to "フォロー数: #{user.follower.count}", followings_user_path(user.id) %></p>
+<p><%= link_to "フォロワー数: #{user.followed.count}", followers_user_path(user.id) %></p>
 <% unless current_user == user %><!-- フォローしようとしているユーザーが自分でなければOK -->
   <!-- フォロー解除ボタン -->
   <% if current_user.following?(user) %><!-- following?メソッドですでにフォロー済みであればtureを返す -->

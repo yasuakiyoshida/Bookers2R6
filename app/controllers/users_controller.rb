@@ -27,13 +27,13 @@ class UsersController < ApplicationController
   def followings
     # @userのフォローしているユーザー全てを取得
     @user = User.find(params[:id])
-    @users = @user.followings.all
+    @users = @user.followed_user.all
   end
 
   def followers
     # @userのフォロワー全てを取得
     @user = User.find(params[:id])
-    @users = @user.followers.all
+    @users = @user.follower_user.all
   end
 
   private
