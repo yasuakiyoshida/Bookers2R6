@@ -1,0 +1,13 @@
+<!-- 検索結果表示画面 -->
+<!-- userを検索した場合の画面 -->
+<% if @model == "user" %>
+  <h2>Users search for "<%= @value %>"</h2>
+  <!-- @datasに検索情報が入っているのでeachで取得 -->
+  <%= render '/users/index', users: @datas %>
+<!-- bookを検索した場合の画面 -->
+<% elsif @model == "book" %>
+  <h2>Books search for "<%= @value %>"</h2>
+  <%= render '/books/index', books: @datas %>
+<% else %>
+  <p>該当なし</p>
+<% end %>
