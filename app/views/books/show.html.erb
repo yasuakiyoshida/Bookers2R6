@@ -26,7 +26,10 @@
           <% end %>
         </tr>
       </table>
+      <!-- id="comments_area" をターゲットにしてAjaxで書き換える -->
+      <div id="comments-area">
       <%= render 'books/comment', book: @book,book_comment: @book_comment%>
+      </div>
     </div>
   </div>
 </div>

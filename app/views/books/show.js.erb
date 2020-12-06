@@ -1,0 +1,5 @@
+$("#comments-area").html("<%= j(render 'books/comment', { book: @book, book_comment: @book_comment }) %>");
+$("textarea").val('');
+
+<!-- $(セレクタ).val();：対象のvalueを、カッコ内のものに変更する -->
+<!-- val('')でコメント送信後に入力フォームを空にする -->
