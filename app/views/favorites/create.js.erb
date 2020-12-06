@@ -1,0 +1,4 @@
+$("#favorite-btn-<%= @book.id %>").html("<%= escape_javascript(render partial: 'favorites/favorite-btn', locals: {book: @book}) %>");
+<!-- $(セレクタ).html();：対象の子要素のhtmlを、カッコ内のものに変更する。 -->
+<!-- escape_javascript(エイリアスは’j’)：HTMLを挿入するときに実行結果をエスケープするために必要（" とか ' とかはJavaScript的にエスケープ必要） -->
+<!-- render partial: 'ディレクトリ名/テンプレート名', locals: {'部分テンプレート内で使う変数': '変数に入れる値'} -->
