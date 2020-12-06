@@ -26,10 +26,14 @@
           <% end %>
         </tr>
       </table>
-      <!-- id="comments_area" をターゲットにしてAjaxで書き換える -->
-      <div id="comments-area">
-      <%= render 'books/comment', book: @book,book_comment: @book_comment%>
+      <div id="comment_area">
+        <%= render 'books/comment', book: @book %>
       </div>
+      <!-- remote: trueで非同期 -->
+      <%= form_with model:[@book, @book_comment], remote: true do |f| %>
+        <%= f.text_area :comment, size:"90x5" %>
+        <%= f.submit '送信'%>
+      <% end %>
     </div>
   </div>
 </div>

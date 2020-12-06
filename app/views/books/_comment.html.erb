@@ -1,5 +1,5 @@
 <table>
-  <% @book.book_comments.each do |book_comment| %>
+  <% book.book_comments.each do |book_comment| %>
     <% book_comment_user = book_comment.user %>
     <tr>
     	<td>
@@ -16,8 +16,3 @@
     </tr>
   <% end %>
 </table>
-<!-- remote: trueで非同期 -->
-<%= form_with model:[@book,@book_comment], remote: true do |f| %>
-  <%= f.text_area :comment, size:"90x5" %>
-  <%= f.submit '送信'%>
-<% end %>
