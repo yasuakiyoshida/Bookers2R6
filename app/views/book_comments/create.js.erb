@@ -1,4 +1,6 @@
 $("#comment_area").html("<%= j(render 'books/comment', { book: @book }) %>");
+<!-- コメント数反映 -->
+$("#book_<%= @book.id %>").html("コメント数: <%= @book.book_comments.count %>");
 $("textarea").val('') 
 
 <!-- val('')でコメント送信後に入力フォームを空にする -->
