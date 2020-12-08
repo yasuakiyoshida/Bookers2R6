@@ -1,4 +1,6 @@
 $(function() {
+  // ページ遷移して該当ページに戻ってくるとjqueryが動かないので、初回読み込み、リロード、ページ切り替えで動くように設定
+  $(document).on('turbolinks:load', () => {
   // .jpostalを指定するセレクタを選択(デベロッパーツールで確認するとid="user_postcode")
   return $('#user_postcode').jpostal({
     // 郵便番号の入力欄が１つの場合の指定
@@ -8,6 +10,7 @@ $(function() {
       '#user_prefecture_code': '%3', // 都道府県が入力される
       '#user_address_city': '%4', // 市が入力される
       '#user_address_street': '%5', // 町村が入力される
-    },
+      }
+    });
   });
 });
