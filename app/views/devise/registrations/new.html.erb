@@ -16,7 +16,7 @@
           <%= f.label :postcode, 'Postal code'%><br />
           <%= f.text_field :postcode, autocomplete: 'postcode', class: "postcode" %>
         </div>
-        <!-- 都道府県はプルダウンメニュー -->
+        <!-- collection_selectを使用して、都道府県のセレクトボックスを生成することができる-->
         <div class="field">
           <%= f.label :prefecture_name, 'Prefecture code' %><br />
           <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'prefecture_name' %>
@@ -30,7 +30,7 @@
           <%= f.text_field :address_street, autocomplete: 'address_street', class: 'address_street' %>
         </div>
         <div class="field">
-          <%= f.label :address_building, 'Building' %>
+          <%= f.label :address_building, 'Building' %><br />
           <%= f.text_field :address_building, autocomplete: 'address_street', class: 'address_building' %>
         </div>
         <div class="field">
