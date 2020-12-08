@@ -41,4 +41,20 @@ class User < ApplicationRecord
     following = self.follower.find_by(followed_id: other_user.id)
     following.destroy if follower
   end
+  
+  # jpprefectureを呼び出す
+  # (モデルにprefectureというインスタンスメソッドが作成され、都道府県コード,都道府県名を参照できるようになる)
+  include JpPrefecture
+  # prefecture_codeはuserが持っているカラム
+  jp_prefecture :prefecture_code
+  
+  # @user.prefecture_nameで都道府県名を参照出来る様にする
+  # postal_codeからprefecture_nameに変換するメソッドを用意
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+  
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 end
