@@ -18,7 +18,7 @@
           </td>
           <td><%= link_to @book.title, book_path(@book) %></td>
           <td><%= @book.body %></td>
-          <td id="favorite-btn-<%= @book.id %>">
+          <td id="favorite_btn_<%= @book.id %>">
             <%= render "favorites/favorite-btn", book: @book %>
           </td>
           <!-- 非同期通信でコメント数を更新させるためid付与 -->

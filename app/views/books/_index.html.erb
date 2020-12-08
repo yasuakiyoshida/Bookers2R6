@@ -18,7 +18,7 @@
         <td><%= book.body %></td>
         <!-- どの投稿に対しての'いいね'か判断するためにidを割り振る -->
         <!-- each_with_index でも良かったかも -->
-        <td id="favorite-btn-<%= book.id %>">
+        <td id="favorite_btn_<%= book.id %>">
           <%= render "favorites/favorite-btn", book: book %>
         </td>
         <td>コメント数: <%= book.book_comments.count %></td>
