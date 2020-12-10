@@ -10,10 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
-
+  def create
+    super
+    # 確認メールを送信
+    ThanksMailer.complete_mail(@user).deliver_now
+  end
+  
   # GET /resource/edit
   # def edit
   #   super
